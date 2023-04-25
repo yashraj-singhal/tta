@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/sansation" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Blinker:wght@300&family=IBM+Plex+Sans:ital,wght@0,200;1,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/nav.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script type="text/javascript" src="{{ url_for('static',filename='first.js') }}"></script>
+    <script src="https://www.amcharts.com/lib/4/core.js"></script>
+    <script src="https://www.amcharts.com/lib/4/charts.js"></script>
+    <script src="https://cdn.anychart.com/releases/8.10.0/js/anychart-core.min.js"></script>
+    <script src="https://cdn.anychart.com/releases/8.10.0/js/anychart-pie.min.js"></script>
+
+</head>
+
+<header>
+    <div class="topnav">
+        <div class="topnav-left">
+            <a href="/tta/index" class="active">TTArtist</a>
+
+        </div>
+        <div class="lo_button">
+            <a href="/tta/logout" style="color: #FF784E;" id="lo"><i class="fa fa-sign-out"></i> <span class="l_text">Logout</span>
+            </a>
+        </div>
+    </div>
+    <div class="dropdown">
+
+    </div>
+</header>
+
+<body>
+    <div id="statbox">
+        <div class="animate-gradient-text">
+            <h1><i>Hi {{name}}, these are your stats</i></h1>
+            <h3> Total Evaluated Images: {{ress[4]}} </h3>
+            <h3> Total Skipped Images: {{ress[5]}} </h3>
+
+        </div>
+
+        <div>
+            <div id="chartdiv"></div>
+        </div>
+
+        <div>
+            <div id="chartdiv1"></div>
+        </div>
+
+        <h1 id="star_review"></h1>
+        <div class="rating-stars" style="margin: auto;">
+            <span class="star-icon" id="rs1">★</span>
+            <span class="star-icon" id="rs2">★</span>
+            <span class="star-icon" id="rs3">★</span>
+            <span class="star-icon" id="rs4">★</span>
+            <span class="star-icon" id="rs5">★</span>
+        </div>
+
+        <h5> Thanks for contribution ❤️</h5>
+
+
+    </div>
+</body>
+<style>
+    html,
+    body {
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        overflow-x: hidden;
+        font-family: "Sansation";
+    }
+    
+    .lo_button {
+        float: right;
+        margin-top: 10px;
+        height: 100%;
+    }
+    
+    .animate-gradient-text {
+        background-image: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+        background-size: 200%;
+        font-size: 40px;
+        -webkit-text-fill-color: transparent;
+        -webkit-background-clip: text;
+        background-clip: text;
+        animation: animated-gradient 5s ease infinite;
+    }
+    
+    @keyframes animated-gradient {
+        0%,
+        100% {
+            background-position: 0 50%;
+        }
+        50% {
+            background-position: 100% 50%;
+        }
+    }
+    
+    #statbox {
+        margin-top: 80px;
+        text-align: center;
+        padding-left: 10px;
+        padding-right: 10px;
+        margin-bottom: 20px;
+    }
+    
+    #chartdiv {
+        width: 100%;
+        margin-left: auto;
+        justify-content: center;
+        padding-right: 50px;
+        margin-right: auto;
+        height: 400px;
+    }
+    
+    #chartdiv1 {
+        width: 100%;
+        margin-left: auto;
+        justify-content: center;
+        padding-right: 50px;
+        margin-right: auto;
+        height: 400px;
+    }
+    
+    #statbox h2 {
+        font-size: xx-large;
+    }
+    
+    @media screen and (max-width: 500px) {
+        .animate-gradient-text {
+            font-size: 20px;
+        }
+        .l_text {
+            display: none;
+        }
+    }
+    
+    .rating-stars {
+        display: block;
+        width: 70vmin;
+        background: linear-gradient(90deg, #ffffff90 40vmin, #fff0 40vmin 100%);
+        border-radius: 5vmin;
+        position: relative;
+    }
+    
+    .rating-counter {
+        font-size: 5.5vmin;
+        color: #9aacc6;
+        width: 10vmin;
+        text-align: center;
+        background: #0006;
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 100%;
+        border-radius: 0 5vmin 5vmin 0;
+        line-height: 10vmin;
+    }
+    
+    input {
+        display: none;
+    }
+    
+    .star-icon {
+        color: #ccc;
+        font-size: 50px;
+        vertical-align: middle;
+    }
+    
+    .star-icon.filled {
+        color: #F7A115;
+    }
+    
+    @keyframes pulse {
+        50% {
+            font-size: 6.25vmin;
+        }
+    }
+    
+    input:checked:hover~.rating-counter:before {
+        animation: none !important;
+        color: #ffab00 !important;
+    }
+    
+     ::-webkit-scrollbar {
+        height: 4px;
+        width: 4px;
+        background: rgb(255, 255, 255);
+    }
+    
+     ::-webkit-scrollbar-thumb:horizontal {
+        background: #000;
+        border-radius: 10px;
+    }
+    
+     ::-webkit-scrollbar-thumb:vertical {
+        background: #000;
+        border-radius: 10px;
+    }
+</style>
+<script>
+    var data = [{
+        'image_type': 'Real',
+        'value': '{{ress[6]}}'
+    }, {
+        'image_type': 'Fake',
+        'value': '{{ress[4] - ress[6]}}'
+    }];
+    var sum = 0;
+    for (let i = 0; i < 2; i++) {
+        sum += parseInt(data[i].value);
+    }
+    console.log(sum);
+    if (sum != 0) {
+        document.getElementById("chartdiv").style.height = "400px"
+        anychart.onDocumentReady(function() {
+            var chart = am4core.create("chartdiv", am4charts.PieChart);
+            chart.data = data;
+
+            var pieSeries = chart.series.push(new am4charts.PieSeries());
+            pieSeries.dataFields.value = "value";
+            pieSeries.dataFields.category = "image_type";
+            pieSeries.labels.template.disabled = true;
+            pieSeries.ticks.template.disabled = true;
+            pieSeries.colors.list = ["teal", "crimson"].map(function(color) {
+                return new am4core.color(color);
+            });
+            chart.legend = new am4charts.Legend();
+            chart.legend.position = "bottom";
+            chart.legend.scrollable = true;
+            chart.legend.labels.template.truncate = false;
+            am4core.addLicense("ch-custom-attribution");
+            chart.innerRadius = am4core.percent(60);
+            chart.tooltip.label.maxWidth = 150;
+            chart.tooltip.label.wrap = true;
+            var label = pieSeries.createChild(am4core.Label);
+            label.text = "Total: {values.value.sum}";
+            label.horizontalCenter = "middle";
+            label.verticalCenter = "middle";
+            label.fontSize = 30;
+        });
+    } else {
+        document.getElementById("chartdiv").style.height = "0px";
+    }
+
+
+    var data1 = [{
+        'image_type': 'Positive',
+        'value': '{{ress[7]}}'
+    }, {
+        'image_type': 'Negative',
+        'value': '{{ress[4] - ress[7]}}'
+    }];
+    var sum = 0;
+    for (let i = 0; i < 2; i++) {
+        sum += parseInt(data1[i].value);
+    }
+    console.log(sum);
+    if (sum != 0) {
+        document.getElementById("chartdiv1").style.height = "400px"
+        anychart.onDocumentReady(function() {
+            var chart = am4core.create("chartdiv1", am4charts.PieChart);
+            chart.data = data1;
+
+            var pieSeries = chart.series.push(new am4charts.PieSeries());
+            pieSeries.dataFields.value = "value";
+            pieSeries.dataFields.category = "image_type";
+            pieSeries.labels.template.disabled = true;
+            pieSeries.ticks.template.disabled = true;
+            pieSeries.colors.list = ["teal", "crimson"].map(function(color) {
+                return new am4core.color(color);
+            });
+            chart.legend = new am4charts.Legend();
+            chart.legend.position = "bottom";
+            chart.legend.scrollable = true;
+            chart.legend.labels.template.truncate = false;
+            am4core.addLicense("ch-custom-attribution");
+            chart.innerRadius = am4core.percent(60);
+            chart.tooltip.label.maxWidth = 150;
+            chart.tooltip.label.wrap = true;
+            var label = pieSeries.createChild(am4core.Label);
+            label.text = "Total: {values.value.sum}";
+            label.horizontalCenter = "middle";
+            label.verticalCenter = "middle";
+            label.fontSize = 30;
+        });
+    } else {
+        document.getElementById("chartdiv1").style.height = "0px";
+    }
+
+
+
+    var thresholds = [10, 30, 60, 100, 200];
+    total = parseInt('{{image_evaluated}}');
+    console.log("Total")
+    console.log(total)
+    idx = 0;
+    for (let i = 1; i <= 5 && total >= thresholds[i - 1]; i++) {
+        var btn = "rs" + i;
+        document.getElementById(btn).classList.toggle('filled');
+        idx = i - 1;
+    }
+    if (idx + 1 >= 5) {
+        comment = "You are a 5 star rated user. Keep it up!";
+    } else {
+        var diff = thresholds[idx + 1] - total;
+        comment = `Evaluate ${diff} more images to get your next star!`
+    }
+    document.getElementById('star_review').innerHTML = comment;
+</script>
+
+</html>

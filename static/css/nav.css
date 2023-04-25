@@ -1,0 +1,121 @@
+#proimg {
+    margin-top: -5px;
+    height: 50px;
+    width: 50px;
+}
+
+.topnav ul {
+    list-style: none;
+}
+
+.topnav li {
+    float: left;
+}
+
+.topnav {
+    top: 0px;
+    width: 100%;
+    position: fixed;
+    overflow: hidden;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 5px 5px 5px gray;
+    z-index: 100;
+}
+
+.topnav a {
+    float: left;
+    font-family: 'Sansation';
+    font-style: normal;
+    color: #000000;
+    text-align: center;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 5px;
+    text-decoration: none;
+    font-size: 30px;
+}
+
+.topnav a.active {
+    font-family: 'Berkshire Swash';
+    font-style: normal;
+    font-size: xxx-large;
+    color: rgb(0, 0, 0);
+}
+
+.button {
+    float: right;
+    font-size: 8px;
+    padding: 5px 10px;
+    box-shadow: 3px 3px 30px rgba(118, 96, 168, 0.2);
+    border-radius: 15px;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, color 0.2s ease;
+}
+
+.button:hover {
+    color: #DBD7E0;
+    transform: translateY(3px);
+    box-shadow: 3px 3px 30px rgba(118, 96, 168, 0.17);
+}
+
+.dropdown {
+    position: fixed;
+    right: 0;
+    margin-top: 70px;
+    color: #E3DFE9;
+    font-size: 18px;
+    background: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 15px;
+    display: block;
+    cursor: pointer;
+    width: 230px;
+    transform: scale(0.01);
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease 0.15s;
+    transform-origin: center top;
+    overflow: hidden;
+}
+
+.dropdown.open {
+    transform: scale(1);
+    opacity: 1;
+    box-shadow: 3px 3px 30px rgba(118, 96, 168, 0.15);
+}
+
+.dropdown a {
+    text-align: center;
+    position: relative;
+    font-size: x-large;
+    font-family: "Sansation";
+    color: #6C6185;
+    text-decoration: none;
+    display: block;
+    padding: 12.5px 30px;
+    transition: color 0.2s ease, background-color 0.2s ease, padding-left 0.2s ease;
+    overflow: hidden;
+}
+
+.dropdown a.clicked {
+    padding-left: 35px;
+    color: #987CD9;
+}
+
+.dropdown a:hover {
+    color: #987CD9;
+    padding-left: 35px;
+}
+
+@media screen and (max-width: 1024px) {
+    .button ul {
+        padding: 0;
+    }
+    #proname {
+        display: none;
+    }
+    .dropdown {
+        margin-top: 70px;
+        width: 100%;
+    }
+}

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/sansation" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Blinker:wght@300&family=IBM+Plex+Sans:ital,wght@0,200;1,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/nav.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script type="text/javascript" src="{{ url_for('static',filename='first.js') }}"></script>
+    <script src="https://www.amcharts.com/lib/4/core.js"></script>
+    <script src="https://www.amcharts.com/lib/4/charts.js"></script>
+    <script src="https://cdn.anychart.com/releases/8.10.0/js/anychart-core.min.js"></script>
+    <script src="https://cdn.anychart.com/releases/8.10.0/js/anychart-pie.min.js"></script>
+    {% block head %}{% endblock %}
+</head>
+
+<header>
+    <div class="topnav">
+        <div class="topnav-left">
+            <a href="/tta/index" class="active">TTArtist</a>
+            <!-- "/ttc/index" -> "/tta/index" -->
+            <!-- "TTChef" -> "TTArtist" -->
+        </div>
+        <div class="button">
+            <ul>
+                <li><img src="{{ url_for('static',filename='images/profile.png') }}" id="proimg"></li>
+                <li id="proname"><a href="#about">{{name}}</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="dropdown">
+        <a href="/tta/stats" style="color: rgb(87, 84, 84);" id="pr"><i class="fa fa-user"></i> Profile			
+          <span></span>
+        </a>
+        <a href="/tta/about" style="color: rgb(87, 84, 84);" id="ab"><i class="fa fa-info"></i>  About				<!-- "/ttc/about" -> "/tta/about" -->
+          <span></span>
+        </a>
+        <a href="/tta/logout" style="color: #FF784E;" id="lo"><i class="fa fa-sign-out"></i> Logout				<!-- "/ttc/logout" -> "/tta/logout" -->
+          <span></span>
+        </a>
+    </div>
+</header>
+
+<body>
+    {% block body %}{% endblock %}
+</body>
+
+<footer>
+
+</footer>
+
+</html>

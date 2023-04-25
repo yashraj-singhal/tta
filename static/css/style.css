@@ -1,0 +1,392 @@
+html,
+body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    overflow: hidden;
+}
+
+#outer {
+    display: flex;
+    flex-flow: column;
+    height: 100%;
+    padding: 0;
+}
+
+.recp_name i {
+    font-size: x-large;
+}
+
+.bottom_box {
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+@keyframes animated-gradient {
+    0%,
+    100% {
+        background-position: 0 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+#inner_remaining {
+    flex-grow: 1;
+    overflow: auto;
+}
+
+.evaluate {
+    width: 98%;
+    height: 100%;
+    border-radius: 15px;
+    font-family: 'Sansation';
+    font-style: normal;
+    --borderWidth: 5px;
+    position: relative;
+    border-radius: var(--borderWidth);
+    text-align: center;
+    font-size: 25px;
+}
+
+.evaluate:after {
+    content: '';
+    position: absolute;
+    top: calc(-1 * var(--borderWidth));
+    left: calc(-1 * var(--borderWidth));
+    height: calc(100% + var(--borderWidth) * 2);
+    width: calc(100% + var(--borderWidth) * 2);
+    background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
+    border-radius: calc(2 * var(--borderWidth));
+    z-index: -1;
+    animation: animatedgradient 3s ease alternate infinite;
+    background-size: 300% 300%;
+}
+
+@keyframes animatedgradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.evaluate_upper {
+    display: flex;
+    flex-flow: column;
+}
+
+.evaluate_upper h1 {
+    background-image: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 200%;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    animation: animated-gradient 5s ease infinite;
+    font-size: 40px !important;
+}
+
+.question {
+    display: flex;
+    justify-content: space-around;
+}
+
+
+/* Простенька Keyframe анімація */
+
+@keyframes animated-gradient {
+    0%,
+    100% {
+        background-position: 0 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+.evaluate ul {
+    padding: 0;
+    list-style: none;
+    font-size: 20px !important;
+}
+
+.evaluate ul li {
+    display: inline-block;
+    margin-top: 1%;
+}
+
+.progressbar {
+    text-align: center;
+    margin-top: 15px;
+    width: 40%;
+    padding: 0;
+}
+
+#sbt {
+    /* background: #FEA49F; */
+    border: none;
+    font-family: 'Sansation';
+    font-style: normal;
+    font-size: 25px;
+    border: 3px solid black;
+    background-color: transparent;
+    border-radius: 10px;
+    color: #000;
+    width: 250px;
+    height: 50px;
+}
+
+#skp {
+    /* background:  #88D4FF; */
+    border: none;
+    font-family: 'Sansation';
+    font-style: normal;
+    font-size: 25px;
+    border: 3px solid black;
+    background-color: transparent;
+    border-radius: 10px;
+    color: rgb(0, 0, 0);
+    width: 250px;
+    height: 50px;
+}
+
+.progressbar li {
+    float: left;
+    list-style: none;
+    width: 16%;
+    position: relative;
+    text-align: center;
+}
+
+.progressbar li:before {
+    content: "0";
+    width: 30px;
+    height: 30px;
+}
+
+.progressbar li:before {
+    content: "0";
+    width: 30px;
+    height: 30px;
+    border: 2px solid #000000;
+    display: block;
+    margin: 0 auto 10px auto;
+    border-radius: 50%;
+    /* line-height: 27px; */
+    background: rgb(190, 185, 185);
+    color: #000000;
+    text-align: center;
+    font-weight: bold;
+}
+
+.progressbar {
+    counter-reset: step -1;
+    border-radius: 15px;
+    background: #00000036;
+    /* background: #E9E9E9; */
+}
+
+.progressbar li:before {
+    content: counter(step);
+    font-size: 15px;
+    counter-increment: step 1;
+    width: 30px;
+    height: 30px;
+    border: 3px solid #000000;
+    display: block;
+    /* margin: 0 auto 10px auto; */
+    border-radius: 50%;
+    line-height: 29px;
+    background: rgb(202, 38, 38);
+    color: #000000;
+    text-align: center;
+    font-weight: bold;
+}
+
+.progressbar2 {
+    justify-content: space-around;
+    display: flex;
+}
+
+#bt0::before {
+    background-color: #fc1239;
+}
+
+#bt1::before {
+    background-color: #f7756b;
+}
+
+#bt2::before {
+    background-color: #fdde65;
+}
+
+#bt3::before {
+    background-color: #f5f4a0;
+}
+
+#bt4::before {
+    background-color: #7dfb74;
+}
+
+#bt5::before {
+    background-color: #00ff00;
+}
+
+#bt6::before {
+    background-color: #fc1239;
+}
+
+#bt7::before {
+    background-color: #00ff00;
+}
+
+#btt0::before {
+    background-color: #fc1239;
+}
+
+#btt1::before {
+    background-color: #00ff00;
+}
+
+.blurry {
+    opacity: 0.4;
+}
+
+.content {
+    margin-top: 20px;
+}
+
+.recp_name {
+    float: right;
+    font-family: 'Sansation';
+    font-style: normal;
+    color: #444444;
+    padding-left: 5%;
+    margin-right: 20px;
+}
+
+.recp_name p {
+    font-size: 50px;
+}
+
+#ing2 {
+    display: none;
+}
+
+table {
+    table-layout: fixed;
+    word-wrap: break-word;
+    margin-top: -50px;
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 10px 1em;
+}
+
+th,
+td {
+    overflow: hidden;
+    font-family: 'Sansation';
+    font-style: normal;
+    width: fit-content;
+    padding-right: 10px;
+    vertical-align: top;
+    font-size: 21px;
+}
+
+td:before {
+    content: '✅ ';
+}
+
+.instructions {
+    padding-left: 5%;
+    line-height: 30px;
+    font-family: 'Sansation';
+    font-style: normal;
+    font-size: 21px;
+    color: rgb(77, 76, 76);
+}
+
+.instructions li {
+    list-style: none;
+}
+
+@media screen and (max-width: 1024px) {
+    html,
+    body {
+        height: auto;
+        width: 100%;
+        margin: 0;
+        overflow: auto;
+    }
+    #ing1 {
+        display: none;
+    }
+    #ing2 {
+        display: inline-block;
+    }
+    .recp_name {
+        float: left;
+    }
+    .recp_name p {
+        font-size: xx-large;
+    }
+    .instructions {
+        float: left;
+    }
+    .instructions ul {
+        padding: 0;
+        font-size: medium;
+    }
+    .instructions h1 {
+        font-size: x-large;
+    }
+    #inner_remaining {
+        height: 100%;
+        overflow: hidden;
+    }
+    #outer {
+        margin-top: 20px;
+        display: flex;
+        flex-flow: column;
+        height: 100%;
+        padding-bottom: 0px;
+    }
+    .evaluate h1 {
+        font-size: xx-large;
+    }
+}
+
+@media screen and (max-width: 870px) {
+    .evaluate_upper {
+        flex-flow: column;
+    }
+    .question {
+        flex-flow: column;
+    }
+    .progressbar {
+        width: 100%;
+    }
+}
+
+::-webkit-scrollbar {
+    height: 4px;
+    width: 4px;
+    background: rgb(255, 255, 255);
+}
+
+::-webkit-scrollbar-thumb:horizontal {
+    background: #000;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:vertical {
+    background: #000;
+    border-radius: 10px;
+}

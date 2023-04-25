@@ -1,0 +1,85 @@
+{% extends 'base.html' %} {% block head %}
+<title>TTArtist</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- ttc -> ttm -->
+<link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
+
+<!-- Added -->
+<style>
+
+</style>
+{% endblock %} {% block body %}
+
+<div id="outer">
+    <div id="inner_remaining" style="padding-bottom: 3%;">
+        <div class="content">
+            <div class="recp_name">
+                <br>
+
+                <table id="ing1">
+                    <tr style="display: flex;">
+                        <div id="child" style="margin: auto;  text-align: center;">
+                            <img src="{{ url_for('static',filename=img_path) }}" id="logo_img" height="370px">
+                            <br>
+                        </div>
+
+                    </tr>
+                </table>
+
+            </div>
+        </div>
+
+
+        <br>
+
+
+
+    </div>
+    <div class="bottom_box" id="inner_fixed">
+        <div class="evaluate">
+            <div class="evaluate_upper">
+
+                <div class="question">
+                    <h1>Is this image Fake or Real?</h1>
+                    <ul class="progressbar">
+                        <li id="bt0" class="blurry" onclick="getval(0);">Fake</li>
+                        <li id="bt1" class="blurry" onclick="getval(1);"></li>
+                        <li id="bt2" class="blurry" onclick="getval(2);"></li>
+                        <li id="bt3" class="blurry" onclick="getval(3);"></li>
+                        <li id="bt4" class="blurry" onclick="getval(4);"></li>
+                        <li id="bt5" class="blurry" onclick="getval(5);">Real</li>
+                    </ul>
+                    <br>
+                </div>
+
+                <div class="question">
+                    <h1>Guess the emotion?</h1>
+                    <!-- "Is this recipe fake or real?" -> "Is this music fake or real?" -->
+                    <ul class="progressbar progressbar2">
+                        <li id="btt0" class="blurry" onclick="getval2(0);">Negative</li>
+                        <li id="btt1" class="blurry" onclick="getval2(1);">Positive</li>
+                    </ul>
+                    <br>
+                </div>
+                <ul class="bts" style="padding:0; width: 100% !important;margin: 10px 0px !important;">
+                    <!-- value ==1 implies generated and 2 implies real -->
+                    <li><button class="sbtn" id="sbt" onclick='submit("{{imgid}}","{{data[0]}}")'>Submit</button></li>
+                    <li><button class="sbtn" id="skp" onclick='skip("{{imgid}}")'>Skip</button></li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- Added this to make heading compatible for different screen sizes -->
+<style>
+    @media screen and (max-width: 500px) {
+        img {
+            width: 335px;
+        }
+    }
+</style>
+<!--------------------------------------------------------------------->
+
+{% endblock %}

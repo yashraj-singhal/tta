@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/sansation" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/9d7803f1fd.js" crossorigin="anonymous"></script>
+    <!-- <script type="text/javascript" src="{{ url_for('static',filename='first.js') }}"></script> -->
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="main_box">
+
+        <!-- Added this section for different classes/images -->
+        <div class="upper_content">
+            <h1>Hi {{name}}!</h1>
+            <div class="animate-gradient-text" style="font-family: 'Berkshire Swash';">
+                <h1>TTArtist</h1>
+            </div>
+            <!-- TTChef -> TTArtist-->
+            <!-- <h2>Which image category you are interested in for the Turing Test?</h2> -->
+        </div>
+
+        <!-- <section>
+            <div>
+              <input type="radio" id="control_11" name="select2" value="Cat" checked>
+              <label for="control_11">
+                <h2>Cat</h2>
+              </label>
+            </div>
+            <div>
+              <input type="radio" id="control_12" name="select2" value="Anime">
+              <label for="control_12">
+                <h2>Anime</h2>								
+              </label>
+            </div>
+         </section>
+		<br>
+		<br>
+		<br>
+		<br> -->
+        <!-------------------------------------------------------------->
+
+        <div class="upper_content">
+
+            <h2>Ready to Register for Turing Testing and guess the emotion</h2>
+            <!-- How do you identify yourself as a Chef? -> How do you identify yourself as in the selected image category?-->
+        </div>
+
+        <!-- <section>
+            <div>
+              <input type="radio" id="control_01" name="select" value="Professional" checked>
+              <label for="control_01">
+                <h2>Professional</h2>
+              </label>
+            </div>
+            <div>
+              <input type="radio" id="control_02" name="select" value="Expert">
+              <label for="control_02">
+                <h2>Mediocre</h2>								
+              </label>
+            </div>
+            <div>
+              <input type="radio" id="control_03" name="select" value="Amateur">
+              <label for="control_03">
+                <h2>Amateur</h2>
+              </label>
+            </div>
+        </section> -->
+
+
+
+
+
+        </br>
+        </br>
+        </br><br>
+        <br>
+        <a href='/tta/occupation_adder'><button id="submit_ocp">Register</button></a>
+        <!-- /ttc/occupation_adder' -> /tta/occupation_adder' -->
+    </div>
+    <br>
+    <br>
+
+</body>
+<style>
+    h1 {
+        font-size: 120px;
+    }
+    
+    .animate-gradient-text {
+        background-image: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+        background-size: 200%;
+        -webkit-text-fill-color: transparent;
+        -webkit-background-clip: text;
+        background-clip: text;
+        animation: animated-gradient 5s ease infinite;
+    }
+    
+    @keyframes animated-gradient {
+        0%,
+        100% {
+            background-position: 0 50%;
+        }
+        50% {
+            background-position: 100% 50%;
+        }
+    }
+    
+    .main_box {
+        width: 100%;
+        height: 100%;
+        font-family: 'Sansation';
+        font-style: normal;
+        text-align: center;
+        margin-top: 5%;
+    }
+    
+    .upper_content {
+        font-size: 30px;
+    }
+    
+    section {
+        display: flex;
+        flex-flow: row wrap;
+    }
+    
+    section>div {
+        flex: 1;
+        padding: 0.5rem;
+    }
+    
+    input[type="radio"] {
+        display: none;
+    }
+    
+    input[type="radio"] :not(:disabled)~label {
+        cursor: pointer;
+    }
+    
+    label {
+        height: 100%;
+        display: block;
+        background: white;
+        border: 2px solid hsla(150, 75%, 50%, 1);
+        border-radius: 20px;
+        padding: 1rem;
+        padding-bottom: 0rem;
+        text-align: center;
+        box-shadow: 0px 3px 10px -2px hsla(150, 5%, 65%, 0.5);
+        position: relative;
+    }
+    
+    input[type="radio"]:checked+label {
+        background: hsla(150, 75%, 50%, 1);
+        color: hsla(215, 0%, 100%, 1);
+        box-shadow: 0px 0px 20px hsla(150, 100%, 50%, 0.75);
+    }
+    
+    input[type="radio"]:checked+label ::after {
+        color: hsla(215, 5%, 25%, 1);
+        font-family: FontAwesome;
+        border: 2px solid hsla(150, 75%, 45%, 1);
+        content: "\f00c";
+        font-size: 20px;
+        position: absolute;
+        top: -25px;
+        left: 50%;
+        transform: translateX(-50%);
+        height: 50px;
+        width: 50px;
+        line-height: 50px;
+        text-align: center;
+        border-radius: 50%;
+        background: white;
+        box-shadow: 0px 2px 5px -2px hsla(0, 0%, 0%, 0.25);
+    }
+    
+    @media only screen and (max-width: 700px) {
+        section {
+            flex-direction: column;
+        }
+    }
+    
+    #submit_ocp {
+        background: #9ffefe;
+        border: none;
+        font-family: 'Sansation';
+        font-style: normal;
+        font-size: 25px;
+        border-radius: 10px;
+        width: 250px;
+        height: 50px;
+    }
+    
+    @media screen and (max-width: 500px) {
+        .main_box {
+            font-size: 20px;
+        }
+        .upper_content h1 {
+            font-size: 50px;
+        }
+        .upper_content h2 {
+            font-size: 30px;
+        }
+        section h2 {
+            font-size: 20px;
+        }
+        label {
+            padding-bottom: 1rem;
+        }
+        input[type="radio"]:checked+label ::after {
+            height: 25px;
+            width: 25px;
+            top: -15px;
+            line-height: 28px;
+        }
+    }
+</style>
+<script type=text/javascript>
+    $(document).on('click', '#submit_ocp', function() {
+        $.ajax({
+            type: "POST",
+            url: "occupation_adder",
+            data: {
+                occupation_type: document.querySelector('input[name="select"]:checked').value,
+                class_type: document.querySelector('input[name="select2"]:checked').value <!-- added this for fetching the class instrument from UI-->
+            },
+            success: function() {
+                console.log("success");
+            }
+        });
+    });
+</script>
+
+</html>

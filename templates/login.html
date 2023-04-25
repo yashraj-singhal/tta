@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/sansation" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/9d7803f1fd.js" crossorigin="anonymous"></script>
+    <title>Welcome</title>
+</head>
+
+<body>
+    <div class="main_box">
+        <div class="animate-gradient-text">
+            <h1>TTArtist</h1>
+        </div>
+        <!-- Replaced "TTChef" -> "TTArtist" -->
+        <h5>Turing test for Painter</h5>
+        <!-- Replaced "Turing test for Chef" -> "Turing test for Painter" -->
+        <div class="g_body">
+            <a href="/tta/login" style="text-decoration: none;">
+                <!-- Replaced "/ttc/login" -> "/tta/login" -->
+                <button class="g-button">
+                    <img class="g-logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/157px-Google_%22G%22_Logo.svg.png" alt="Google Logo">
+                    <p class="g-text">Continue with Google</p>
+                  </button>
+            </a>
+
+        </div>
+        <p style="font-size:small">By continuing, you agree to Name <br><span style="color:#5162FF;font-size:small;">Terms of Use</span> and <span style="color:#5162FF;font-size:small;">Privacy Policy.</span></p>
+    </div>
+
+</body>
+<style>
+    h1 {
+        font-size: 120px;
+        font-family: 'Berkshire Swash';
+    }
+    
+    .animate-gradient-text {
+        background-image: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+        background-size: 200%;
+        -webkit-text-fill-color: transparent;
+        -webkit-background-clip: text;
+        background-clip: text;
+        animation: animated-gradient 5s ease infinite;
+    }
+    /* Простенька Keyframe анімація */
+    
+    @keyframes animated-gradient {
+        0%,
+        100% {
+            background-position: 0 50%;
+        }
+        50% {
+            background-position: 100% 50%;
+        }
+    }
+    
+    h5 {
+        font-size: 35px;
+    }
+    
+    .main_box {
+        width: 100%;
+        font-family: 'Sansation';
+        font-style: normal;
+        text-align: center;
+        font-size: 35px;
+        position: absolute;
+        padding: 0;
+        margin: auto;
+        top: 40%;
+        left: 50%;
+        -ms-transform: translateX(-50%) translateY(-50%);
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
+    
+    .g_body {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .g-button {
+        margin: 0;
+        background: #FFFFFF;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        border-radius: 10px;
+        padding: 0;
+        border: none;
+        display: flex;
+    }
+    
+    .g-logo {
+        margin: 0;
+        padding: 0;
+        width: 28px;
+        height: 28px;
+        padding: 15px 10px;
+    }
+    
+    .g-text {
+        margin: 0;
+        padding: 0;
+        font-size: 16px;
+        padding: 15px 10px;
+        color: black;
+        font-family: 'Sansation';
+        font-style: normal;
+        font-size: x-large;
+        text-align: center;
+    }
+    
+    @media screen and (max-width: 500px) {
+        h1 {
+            font-size: 60px;
+        }
+        .main_box {
+            font-size: 20px;
+        }
+    }
+</style>
+<script>
+    $(".g-button").on('click', function() {
+        $.ajax({
+            type: "POST",
+            url: "login",
+            data: {},
+            success: function() {
+                console.log("success");
+            }
+        });
+    });
+</script>
+
+</html>
