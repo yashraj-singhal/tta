@@ -1,7 +1,7 @@
 #Replaced ttc -> ttp
 #Replaced TTC_URL -> TTP_URL
 
-Total_images = 800 
+Total_images = 1200 
 
 from distutils.log import debug
 import os
@@ -29,7 +29,7 @@ app.config['SESSION_TYPE']="filesystem"
 Session(app)
 
 HOST_URL = "http://127.0.0.1:5000"
-TTP_URL = "/tta"
+TTP_URL = "/ttp"
 GENERATED = 1
 REAL = 2
 # db_table_structure = "(uid,email_id,given_name,family_name,name,user_img,occupation,real_start,real_inc,real_cur,real_count,fake_start,fake_inc,fake_cur,fake_count,R0,F0,R1,F1,R2,F2,R3,F3,R4,F4,R5,F5,total,image_evaluated,image_skipped,rand_num,class)"    #Replaced recipe_evaluated --> image_evaluated, image_skipped--> image_skipped, also added class as an extra columnn class
@@ -163,6 +163,8 @@ def index():
     cur2.execute(f"SELECT * FROM user WHERE uid = '{session['google_id']}'")
     # print(cur2.fetchone())
     ress = tuple(cur2.fetchone()) 
+    if ress[4] + ress[5] >= Total_images:
+        return render_template('statistics.html', name = session['given_name']+ ",You have evaluated all the images", image_evaluated=ress[4], ress = ress)
     imgid = (ress[3] % Total_images) + 1 
     cur2.execute(f"SELECT * FROM Images WHERE imgId = '{ress[3]}' ")
     ress2 = tuple(cur2.fetchone()) 
@@ -175,8 +177,8 @@ def index():
     
     #data[1] = data[1].split('|')					#data[2] -> data[1]
     print(data)
-    img_path = "data_images/generated_images/"+ img_path +'.png'
-    print(img_path)
+    # img_path = "data_images/generated_images/"+ img_path +'.png'
+    # print(img_path)
     
 
     return render_template('index.html', data=data, img_path = img_path , name=session['given_name'],imgid=imgid)

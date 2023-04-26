@@ -82,7 +82,7 @@ function submit(val, Sno) {
             "button_2_val": resp_val_2
         });
         console.log(raw);
-        var ret = apicall(myHeaders, raw, "/tta/sbt", "submit clicked"); //changed from ttc -> ttp
+        var ret = apicall(myHeaders, raw, "/ttp/sbt", "submit clicked"); //changed from ttc -> ttp
         console.log(ret);
 
         // need hai?
@@ -101,7 +101,7 @@ function skip(val) {
         "image_val": val //replaced recp_val -> image_val
     });
 
-    var ret = apicall(myHeaders, raw, "/tta/skip", "submit clicked");
+    var ret = apicall(myHeaders, raw, "/ttp/skip", "submit clicked");
     console.log(ret);
     // window.location.reload();
 
