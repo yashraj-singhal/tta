@@ -19,6 +19,7 @@
                 <table id="ing1">
                     <tr style="display: flex;">
                         <div id="child" style="margin: auto;  text-align: center;">
+                            <br>
                             <img src="{{ url_for('static',filename=img_path) }}" id="logo_img" height="370px">
                             <br>
                         </div>
@@ -40,7 +41,7 @@
             <div class="evaluate_upper">
 
                 <div class="question">
-                    <h1>Is this image Fake or Real?</h1>
+                    <h1>Is the above art Fake or Real?</h1>
                     <ul class="progressbar">
                         <li id="bt0" class="blurry" onclick="getval(0);">Fake</li>
                         <li id="bt1" class="blurry" onclick="getval(1);"></li>
@@ -53,11 +54,13 @@
                 </div>
 
                 <div class="question">
-                    <h1>Guess the emotion?</h1>
+                    <h1>What is the dominant emotion?</h1>
                     <!-- "Is this recipe fake or real?" -> "Is this music fake or real?" -->
                     <ul class="progressbar progressbar2">
                         <li id="btt0" class="blurry" onclick="getval2(0);">Negative</li>
-                        <li id="btt1" class="blurry" onclick="getval2(1);">Positive</li>
+                        <li id="btt1" class="blurry" onclick="getval2(1);"></li>
+                        <li id="btt2" class="blurry" onclick="getval2(2);"></li>
+                        <li id="btt3" class="blurry" onclick="getval2(3);">Positive</li>
                     </ul>
                     <br>
                 </div>

@@ -188,7 +188,7 @@ body {
 
 .progressbar {
     counter-reset: step -1;
-    border-radius: 15px;
+    border-radius: 8px;
     background: #00000036;
     /* background: #E9E9E9; */
 }
@@ -252,6 +252,14 @@ body {
 }
 
 #btt1::before {
+    background-color: #f7756b;
+}
+
+#btt2::before {
+    background-color: #7dfb74;
+}
+
+#btt3::before {
     background-color: #00ff00;
 }
 

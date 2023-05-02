@@ -70,9 +70,9 @@ function submit(val, Sno) {
     console.log("user selected button ", resp_val);
 
     if (resp_val == -1) {
-        alert("Select a rating (0/1/2/3/4/5) from the rating scale below, before submitting.");
+        alert("Select a rating (0/1/2/3/4/5) for fake_or_real from the rating scale below, before submitting.");
     } else if (resp_val_2 == -1) {
-        alert("Select a rating (0/1) from the rating scale below, before submitting.");
+        alert("Select a rating (0/1) for guess_the_emotion from the rating scale below, before submitting.");
     } else {
         var myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");

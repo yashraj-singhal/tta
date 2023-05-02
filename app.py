@@ -207,6 +207,8 @@ def sbt():
     request_data=request.get_json()
     try:
         fake_or_real,emotion=int(request_data['button_val']),int(request_data['button_2_val'])
+        if fake_or_real>5 or fake_or_real<0 or emotion <0 or emotion>3:
+            return 0/0 
     except Exception as ee:
         return skip()
     
