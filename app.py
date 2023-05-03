@@ -29,7 +29,7 @@ app.config['SESSION_TYPE']="filesystem"
 Session(app)
 
 HOST_URL = "http://127.0.0.1:5000"
-TTP_URL = "/ttp"
+TTP_URL = "/tta"
 GENERATED = 1
 REAL = 2
 # db_table_structure = "(uid,email_id,given_name,family_name,name,user_img,occupation,real_start,real_inc,real_cur,real_count,fake_start,fake_inc,fake_cur,fake_count,R0,F0,R1,F1,R2,F2,R3,F3,R4,F4,R5,F5,total,image_evaluated,image_skipped,rand_num,class)"    #Replaced recipe_evaluated --> image_evaluated, image_skipped--> image_skipped, also added class as an extra columnn class
@@ -37,11 +37,11 @@ user_db_structure = "(uid ,email ,name, random_counter, total_count,total_skip,t
 user_eval_structure = "(uid,imgId,fake_or_real,emotion)"
 # yaha se start h
 
-app.secret_key = "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"                                                  #Changed this to our google auth creds
+app.secret_key = "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"                                                  #Changed this to our google auth creds
 app.config['SESSION_PERMANENT']=True
 app.config['SESSION_TYPE']="filesystem"
 Session(app)
-GOOGLE_CLIENT_ID = "478795011834-r6h2opts3roa2ojb7bpc6uuh1n60srf2.apps.googleusercontent.com"           #Changed this to our google auth creds
+GOOGLE_CLIENT_ID = "763991899521-skro291lkh39k8bai3cklkn7p9at33vs.apps.googleusercontent.com"           #Changed this to our google auth creds
 client_secrets_file = os.path.join(
     pathlib.Path(__file__).parent, "client_secret.json")
 
